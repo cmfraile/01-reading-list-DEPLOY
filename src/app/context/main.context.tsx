@@ -1,7 +1,7 @@
 'use client'
 
 import React, { ReactNode, createContext } from "react"
-import libraryHook, { genreAndPages, libraryHookCRUD, userList } from "../hooks/library.hook"
+import useLibraryHook, { genreAndPages, libraryHookCRUD, userList } from "../hooks/library.hook"
 
 interface libraryHookReturn {
         init:boolean 
@@ -16,7 +16,7 @@ const mainContext = createContext( {} as mainContextProps );
 const MainProvider = ({children}:{children:ReactNode}) => {
 
     return(
-    <mainContext.Provider value={{...libraryHook()}}>
+    <mainContext.Provider value={{...useLibraryHook()}}>
         {children}
     </mainContext.Provider>
     )

@@ -23,7 +23,7 @@ export interface libraryHookCRUD {
     }
 }
 
-const libraryHook = () => {
+const uselibraryHook = () => {
 
     const [ init , setInit ] = useState<boolean>(false)
     const [ userList , setUserList ] = useState<userList>({library:list,forReading:[]});
@@ -78,4 +78,4 @@ const libraryHook = () => {
 
 }
 
-export default libraryHook ;
+export default uselibraryHook ;
