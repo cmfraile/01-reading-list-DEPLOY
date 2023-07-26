@@ -61,7 +61,7 @@ const Filter = () => {
     const [ rangeValue , setRangeValue ] = useState<number>(minAndMaxOfPages[0]);
     const [ genre , setGenre ] = useState<string>('all');
 
-    useEffect(() => setGenreAndPages({genre,pages:rangeValue}),[rangeValue,genre])
+    useEffect(() => { setGenreAndPages({genre,pages:rangeValue}) },[genre,rangeValue])
 
     return(
         <div className={styles.filterComponent}>
