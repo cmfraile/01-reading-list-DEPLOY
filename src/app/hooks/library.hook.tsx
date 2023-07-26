@@ -25,6 +25,14 @@ export interface libraryHookCRUD {
 
 const uselibraryHook = () => {
 
+    const listFiltered = ():Book[] => list
+        .filter( (x) => {
+            if(userList.forReading.length == 0){ return true }
+            return !userList.forReading.map(x => x.title).includes(x.title)
+        })
+        .filter( (x) => (genreAndPages.genre == 'all' || genreAndPages.genre == x.genre) )
+        .filter( (x) => x.pages >= genreAndPages.pages )
+
     const [ init , setInit ] = useState<boolean>(false)
     const [ userList , setUserList ] = useState<userList>({library:list,forReading:[]});
     const [ genreAndPages , setGenreAndPages ] = useState<genreAndPages>({genre:'all',pages:minAndMaxOfPages[0]});
@@ -62,13 +70,7 @@ const uselibraryHook = () => {
         }
     }
 
-    const listFiltered = ():Book[] => list
-        .filter( (x) => {
-            if(userList.forReading.length == 0){ return true }
-            return !userList.forReading.map(x => x.title).includes(x.title)
-        })
-        .filter( (x) => (genreAndPages.genre == 'all' || genreAndPages.genre == x.genre) )
-        .filter( (x) => x.pages >= genreAndPages.pages )
+    
 
     
     return({    init ,
