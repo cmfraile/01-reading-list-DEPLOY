@@ -23,7 +23,7 @@ export interface libraryHookCRUD {
     }
 }
 
-const uselibraryHook = () => {
+const LibraryHook = () => {
 
     const listFiltered = ():Book[] => list
         .filter( (x) => {
@@ -80,4 +80,4 @@ const uselibraryHook = () => {
 
 }
 
-export default uselibraryHook ;
+export default LibraryHook ;
